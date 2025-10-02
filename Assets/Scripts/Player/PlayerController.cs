@@ -40,21 +40,17 @@ public class PlayerController : MonoBehaviour
     private bool isLedgeGrabbing = false;
     private Vector3 lastLedgeNormal;
 
-    private CombatController combat;
     private Animator anim;
     private CharacterController cont;
     private Camera mainCamera;
     private SoundController sound;
-    private PlayerStats playerStats;
     private InputHandler input;
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         cont = GetComponent<CharacterController>();
-        combat = GetComponent<CombatController>();
         sound = GetComponent<SoundController>();
-        playerStats = GetComponent<PlayerStats>();
         input = GetComponent<InputHandler>();
         mainCamera = Camera.main;
     }
@@ -75,20 +71,16 @@ public class PlayerController : MonoBehaviour
         if (!onGround && !isLedgeGrabbing)
             CheckLedgeGrab();
 
-        combat?.SetGrounded(onGround);
 
         if (input.DodgePressed && !isDodging && !isLedgeGrabbing && Time.time > lastDodgeTime + dodgeCooldown)
         {
-            if (playerStats.stamina >= dodgeStaminaCost)
-                StartDodge();
+            StartDodge();
         }
     }
 
     // === Movement ===
     void Movement()
     {
-        if (combat.IsAttacking) return;
-
         Vector3 move = new Vector3(input.MoveInput.x, 0, input.MoveInput.y);
         Vector3 moveDirection = mainCamera.transform.forward * move.z + mainCamera.transform.right * move.x;
         moveDirection.y = 0f;
@@ -120,7 +112,6 @@ public class PlayerController : MonoBehaviour
     // === Jumping ===
     void Jumping()
     {
-        if (combat.IsAttacking) return;
 
         bool wasGrounded = onGround;
         onGround = cont.isGrounded || IsActuallyGrounded();
@@ -173,7 +164,6 @@ public class PlayerController : MonoBehaviour
         dodgeTimer = 0f;
         isDodging = true;
 
-        playerStats.UseStamina(dodgeStaminaCost, true);
         lastDodgeTime = Time.time;
 
         anim.SetTrigger("Dodge");
