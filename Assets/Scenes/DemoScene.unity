@@ -2192,9 +2192,7 @@ GameObject:
   - component: {fileID: 6431000783216254152}
   - component: {fileID: 5137150220300024065}
   - component: {fileID: 7328836551921605613}
-  - component: {fileID: 1839818523464469694}
   - component: {fileID: 6866280033139509108}
-  - component: {fileID: 5931885107664495447}
   - component: {fileID: 4994802839187977373}
   - component: {fileID: 7328836551921605614}
   m_Layer: 6
@@ -2862,18 +2860,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6440157461091473638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1839818523464469694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778377406529688849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073938c951233eb4b8910b0f49d41216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1871169652023973088
 Transform:
   m_ObjectHideFlags: 0
@@ -5148,8 +5134,7 @@ MonoBehaviour:
   actionVolume: 1
   jumpSound: {fileID: 0}
   dashSound: {fileID: 8300000, guid: 30ef745d3a16c50479e811fdd96bbc5a, type: 3}
-  swordSwingSound: {fileID: 8300000, guid: 8ad91886edb785c4595c053bc4fe6a1d, type: 3}
-  swordHitSound: {fileID: 8300000, guid: cff5fa26739358246bb7c4db61ab9082, type: 3}
+  meleeSwingSound: {fileID: 0}
 --- !u!4 &5038418037994415300
 Transform:
   m_ObjectHideFlags: 0
@@ -5433,18 +5418,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &5931885107664495447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778377406529688849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4144a3ea6c1078f48b7d5194deb74e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &5973837129683469283
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6217,7 +6190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c073614cafa0e44969c6de301159c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackKey: 323
+  shootKey: 323
+  aimKey: 324
   jumpKey: 32
   dodgeKey: 304
   mouseSensitivity: 2
