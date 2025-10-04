@@ -5,7 +5,8 @@ public class InputHandler : MonoBehaviour
 
 
     [Header("Action Keys")]
-    public KeyCode attackKey = KeyCode.Mouse0;
+    public KeyCode shootKey = KeyCode.Mouse0;
+    public KeyCode aimKey = KeyCode.Mouse1;
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode dodgeKey = KeyCode.LeftShift;
 
@@ -16,7 +17,8 @@ public class InputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public bool JumpPressed { get; private set; }
-    public bool MeleePressed { get; private set; }
+    public bool ShootPressed { get; private set; }
+    public bool AimPressed { get; private set; }
     public bool DodgePressed { get; private set; }
     public float ScrollInput { get; private set; }
 
@@ -41,7 +43,9 @@ public class InputHandler : MonoBehaviour
         ScrollInput = Input.GetAxis("Mouse ScrollWheel");
 
         // --- Attacks ---
-        MeleePressed = Input.GetKeyDown(attackKey);
+        ShootPressed = Input.GetKeyDown(shootKey);
+
+        AimPressed = Input.GetKey(aimKey);
 
         // --- Dodge ---
         DodgePressed = Input.GetKeyDown(dodgeKey);
