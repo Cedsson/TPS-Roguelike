@@ -16,8 +16,7 @@ public class SoundController : MonoBehaviour
     public float actionVolume = 1.0f;
     public AudioClip jumpSound;
     public AudioClip dashSound;
-    public AudioClip swordSwingSound;
-    public AudioClip swordHitSound;
+    public AudioClip meleeSwingSound;
 
     private float footstepTimer = 0f;
 
@@ -30,8 +29,7 @@ public class SoundController : MonoBehaviour
 
     public void PlayJump() => PlayClip(jumpSound, actionVolume);
     public void PlayDash() => PlayClip(dashSound, actionVolume);
-    public void PlaySwordSwing() => PlayClip(swordSwingSound, actionVolume);
-    public void PlaySwordHit() => PlayClip(swordHitSound, actionVolume);
+    public void PlayMeleeSwing() => PlayClip(meleeSwingSound, actionVolume);
 
     private void PlayClip(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
